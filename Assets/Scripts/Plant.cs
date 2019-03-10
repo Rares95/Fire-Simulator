@@ -36,6 +36,8 @@ public class Plant : MonoBehaviour
     [SerializeField] private float m_BaseFireChance = 3;
     [Tooltip("How much does wind affect the chance of the fire spreading. (0.5 = 1.5x ,1 = 2x, 2 = 3x etc.)")]
     [SerializeField] private float m_WindFireChanceMultiplier = 1;
+    [Tooltip("Depending on which state of burning the plant is in, change the fire spread chance.")]
+    [SerializeField] private AnimationCurve m_FireLifetimeSpreadMultiplier;
 
     public float sizeMultiplier => m_SizeMultiplier;
     private float totalHealth => m_BaseHealth * sizeMultiplier;
@@ -86,14 +88,18 @@ public class Plant : MonoBehaviour
                     if (target)
                     {
                         var sqrDistance = (target.transform.position - transform.position).sqrMagnitude;
-                        var normalizedDistance = 1 - (sqrDistance / sqrPotentialRadius);
+                        var normalizedDistance = (sqrDistance / sqrPotentialRadius);
                         var sizeDelta = sizeMultiplier - target.sizeMultiplier;
+                        var fireSpreadEvaluator = m_CurrentHealth / totalHealth;
 
-                        var chance = sizeMultiplier + (sizeDelta * sizeMultiplier) + (normalizedDistance * sizeMultiplier);
+                        var chance = m_BaseFireChance + (m_BaseFireChance * m_WindFireChanceMultiplier) + sizeDelta;
 
                         chance *= PlantManager.s_SimulationSpeed;
+                        chance *= PHI * Mathf.Cos(normalizedDistance * Mathf.PI);
+                        chance *= sizeMultiplier;
                         chance *= Time.deltaTime;
-                        var randomChance = Random.Range(0, 100);
+                        chance *= m_FireLifetimeSpreadMultiplier.Evaluate(1 - fireSpreadEvaluator);
+                        float randomChance = Random.Range(0f, 100f);
 
                         if (randomChance < chance)
                         {
@@ -101,6 +107,7 @@ public class Plant : MonoBehaviour
                         }
                     }
                 }
+
                 break;
             }
             case PlantState.Burnt:

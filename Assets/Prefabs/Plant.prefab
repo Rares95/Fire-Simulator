@@ -110,3 +110,86 @@ MonoBehaviour:
   PlantBurningMaterial: {fileID: 2100000, guid: a8f422095ff43754082d03b63270e706,
     type: 2}
   PlantBurntMaterial: {fileID: 2100000, guid: 3f8f6538a0c10564c8f74ed02dce3cc0, type: 2}
+  m_BaseHealth: 10
+  m_BaseFireSpreadRadius: 7
+  m_SizeMultiplier: 1
+  m_BaseFireChance: 4
+  m_WindFireChanceMultiplier: 2
+  m_FireLifetimeSpreadMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.17416824
+      value: 0.83098733
+      inSlope: 9.317791
+      outSlope: 9.317791
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06699413
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.19912548
+      value: 0.9439744
+      inSlope: 0.20120783
+      outSlope: 0.20120783
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.27995667
+      value: 0.9931848
+      inSlope: 0.31845292
+      outSlope: 0.31845292
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.37794378
+      value: 1.0113021
+      inSlope: -0.14513007
+      outSlope: -0.14513007
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.68283725
+      value: 0.79975075
+      inSlope: -1.123813
+      outSlope: -1.123813
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.58511573
+      outWeight: 0.8942321
+    - serializedVersion: 3
+      time: 0.889052
+      value: 0.45753956
+      inSlope: -0.92134595
+      outSlope: -0.92134595
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.9999858
+      value: 0.04423242
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
