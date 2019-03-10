@@ -113,7 +113,7 @@ MonoBehaviour:
   m_BaseHealth: 10
   m_BaseFireSpreadRadius: 7
   m_SizeMultiplier: 1
-  m_BaseFireChance: 4
+  m_BaseFireChance: 3.14
   m_WindFireChanceMultiplier: 2
   m_FireLifetimeSpreadMultiplier:
     serializedVersion: 2
