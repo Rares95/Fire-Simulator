@@ -179,10 +179,12 @@ public class Plant : MonoBehaviour
         {
             return;
         }
+#if UNITY_EDITOR
         if (!EditorApplication.isPlaying)
         {
             return;
         }
+#endif
         var heightOffset = Vector3.up * 5;
 
         if (UIManager.s_Instance.debugMode != UIManager.DebugInfo.Wind && UIManager.s_Instance.debugMode != UIManager.DebugInfo.Fire)
