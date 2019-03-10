@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Compass : MonoBehaviour
@@ -9,6 +7,6 @@ public class Compass : MonoBehaviour
 
     public void OnGUI()
     {
-        transform.GetChild(0).localEulerAngles = new Vector3(0, 0, slider.value);
+        transform.GetChild(0).localEulerAngles = new Vector3(0, 0, -slider.value);
     }
 }
